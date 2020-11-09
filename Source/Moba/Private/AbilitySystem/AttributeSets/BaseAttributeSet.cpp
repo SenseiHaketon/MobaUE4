@@ -8,7 +8,6 @@
 #include "GameplayTagsModule.h"
 #include "GameplayEffectExtension.h"
 #include "CharacterBase.h"
-#include "GameFramework/PlayerController.h"
 
 UBaseAttributeSet::UBaseAttributeSet()
 	: Health(800.0f)
@@ -35,39 +34,39 @@ void UBaseAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 	DOREPLIFETIME(UBaseAttributeSet, MoveSpeed);
 }
 
-void UBaseAttributeSet::OnRep_Health()
+void UBaseAttributeSet::OnRep_Health(const FGameplayAttributeData& OldValue)
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, Health);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, Health, OldValue);
 }
 
-void UBaseAttributeSet::OnRep_MaxHealth()
+void UBaseAttributeSet::OnRep_MaxHealth(const FGameplayAttributeData& OldValue)
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MaxHealth);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MaxHealth, OldValue);
 }
 
-void UBaseAttributeSet::OnRep_Mana()
+void UBaseAttributeSet::OnRep_Mana(const FGameplayAttributeData& OldValue)
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, Mana);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, Mana, OldValue);
 }
 
-void UBaseAttributeSet::OnRep_MaxMana()
+void UBaseAttributeSet::OnRep_MaxMana(const FGameplayAttributeData& OldValue)
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MaxMana);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MaxMana, OldValue);
 }
 
-void UBaseAttributeSet::OnRep_AttackDamage()
+void UBaseAttributeSet::OnRep_AttackDamage(const FGameplayAttributeData& OldValue)
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, AttackDamage);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, AttackDamage, OldValue);
 }
 
-void UBaseAttributeSet::OnRep_Armor()
+void UBaseAttributeSet::OnRep_Armor(const FGameplayAttributeData& OldValue)
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, Armor);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, Armor, OldValue);
 }
 
-void UBaseAttributeSet::OnRep_MoveSpeed()
+void UBaseAttributeSet::OnRep_MoveSpeed(const FGameplayAttributeData& OldValue)
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MoveSpeed);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UBaseAttributeSet, MoveSpeed, OldValue);
 }
 
 void UBaseAttributeSet::AdjustAttributeForMaxChange(FGameplayAttributeData& AffectedAttribute, const FGameplayAttributeData& MaxAttribute, float NewMaxValue, const FGameplayAttribute& AffectedAttributeProperty)

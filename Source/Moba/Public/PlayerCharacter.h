@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "CharacterBase.h"
 #include "AbilitySystemInterface.h"
+#include "Interfaces/UnitInterface.h"
+
 #include "PlayerCharacter.generated.h"
 
 //UENUM(BlueprintType)
@@ -18,7 +20,7 @@
 //};
 
 UCLASS()
-class MOBA_API APlayerCharacter : public ACharacterBase
+class MOBA_API APlayerCharacter : public ACharacterBase, public IUnitInterface
 {
 	GENERATED_BODY()
 
